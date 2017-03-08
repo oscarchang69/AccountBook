@@ -1,0 +1,27 @@
+﻿@using AccountBook.Models
+@model List<AccountViewModel>
+@{
+    int RowIndex = 0;
+} 
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th>類別</th>
+                <th>日期</th>
+                <th>金額</th>
+            </tr>
+            @foreach (AccountViewModel item in Model)
+            {
+                RowIndex += 1;
+                <tr>
+                    <td>@RowIndex</td>
+                    <td>@item.類別名稱</td>
+                    <td>@item.日期.ToString("yyyy-MM-dd") </td>
+                    <td>@item.金額.ToString("#,###")</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

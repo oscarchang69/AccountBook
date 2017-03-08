@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AccountBook.Models;
 
 namespace AccountBook.Controllers
 {
@@ -10,21 +11,33 @@ namespace AccountBook.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var model = new List<AccountViewModel>
+            {
+                new AccountViewModel
+                {
+                    類別代號= 1,
+                    類別名稱="支出",
+                    日期=Convert.ToDateTime("2016-01-01"),
+                    金額=300
+
+                },
+                new AccountViewModel
+                {
+                     類別代號= 1,
+                     類別名稱="支出",
+                     日期=Convert.ToDateTime("2016-01-01"),
+                     金額=1600
+                },
+                new AccountViewModel
+                {
+                    類別代號= 1,
+                    類別名稱="支出",
+                    日期=Convert.ToDateTime("2016-01-03"),
+                    金額=800
+                }
+            };
+            return View(model);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
